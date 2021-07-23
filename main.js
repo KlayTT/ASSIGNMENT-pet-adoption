@@ -208,5 +208,24 @@ const pets = [
       specialSkill: "Doesn’t get weirded out by the word “moist.”",
       type: "dino",
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
-    }
+    },
   ];
+
+    pets.forEach( (pet, index) => {
+    const card = 
+    `<div class="row">
+      <div class="column">
+          <div class="card" style="width: 18rem;">
+    <header>${pets[index].name}</header>
+    <img src=${pets[index].imageUrl} class="card-img-top" alt="image of pet">
+    <div class="card-body">
+      <h5 class="card-title">${pets[index].color}</h5>
+      <p class="card-text">${pets[index].specialSkill}</p>
+      <footer>${pets[index].type}</footer>
+          </div>
+        </div>
+      </div>`
+    const ele = document.createElement('div');
+    ele.innerHTML = card;
+    document.body.appendChild(ele.firstChild);
+    }); 
