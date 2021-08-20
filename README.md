@@ -42,3 +42,4 @@ const buttonEvents = () => {
 * Credits 
 * Aja helped me a ton on not making things to difficult for myself and just relaxing and taking my code slowly to understand what I am doing better so HUGE SHOUT OUT TO AJA!!!!
 
+https://www.loom.com/share/16039bf1f4144c96a46fef794ae9aae3
