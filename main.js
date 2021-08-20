@@ -218,9 +218,6 @@ const pets = [
 
   };
 
-/*   renderToDom("#petContainer", domString);
- */
-
       const buttons = () => {
       const domString = `
       <button type="button" class="btn btn-cats" id="cat">Cats</button>
@@ -235,8 +232,8 @@ const pets = [
 
     
     
-    const petBuilder = (petsArray) => {
-      let domString = " "; 
+   /*  const petBuilder = (petsArray) => {
+      let domString = ""; 
       petsArray.forEach( (pet) => {
         let petTypeClass = "";
         if (pet.type === "dog") {
@@ -253,7 +250,27 @@ const pets = [
   });
   renderToDom("#petContainer", domString);
 
-};
+}; */
+
+/* pets.forEach( (pet, index) => {
+const card = 
+`<div class="pets">
+  <div class="column">
+      <div class="card" style="width: 18rem;">
+<header>${pets[index].name}</header>
+<img src=${pets[index].imageUrl} class="card-img-top" alt="image of pet">
+<div class="card-body">
+  <h5 class="card-title">${pets[index].color}</h5>
+  <p class="card-text">${pets[index].specialSkill}</p>
+  <footer>${pets[index].type}</footer>
+      </div>
+    </div>
+  </div>`
+const ele = document.createElement('div');
+ele.innerHTML = card;
+document.body.appendChild(ele.firstChild);      
+}); */
+
 
 
       const filterPets = (petsArray, type) => {
@@ -274,31 +291,29 @@ const pets = [
           petBuilder(dinoPets);
         }
         if (event.target.id === "pets") {
-          const dinoPets = filterPets(pets, event.target.id);
           petBuilder(pets);
         }
         
       };
     
-      pets.forEach( (pet, index) => {
-      const card = 
-      `<div class="pets">
-        <div class="column">
-            <div class="card" style="width: 18rem;">
-      <header>${pets[index].name}</header>
-      <img src=${pets[index].imageUrl} class="card-img-top" alt="image of pet">
-      <div class="card-body">
-        <h5 class="card-title">${pets[index].color}</h5>
-        <p class="card-text">${pets[index].specialSkill}</p>
-        <footer>${pets[index].type}</footer>
-            </div>
-          </div>
-        </div>`
-      const ele = document.createElement('div');
-      ele.innerHTML = card;
-      document.body.appendChild(ele.firstChild);      
-    });
-    
+      const petBuilder = (petsArray) => {
+        let domString = "";
+        petsArray.forEach((pet) => {
+          domString += `
+          <div class="pets">
+          <div class="column">
+          <div class="card" style="width: 18rem;">
+          <header>${pet.name}</header>
+          <img src=${pet.imageUrl} class="card-img-top" alt="image of pet">
+          <div class="card-body">
+          <h5 class="card-title">${pet.color}</h5>
+          <p class="card-text">${pet.specialSkill}</p>
+          <footer>${pet.type}</footer>
+          `;
+        });
+      
+        renderToDom("#petContainer", domString);
+      };
     
         
       
@@ -308,17 +323,17 @@ const pets = [
           .querySelector("#buttonContainer")
           .addEventListener("click", handleButtonClick);
         
-        document
-          .querySelector("#petContainer")
-          .addEventListener("click", deletePet)
+       
       };
       
     
       const init = () => {
         buttons();
         buttonEvents();
-        pets(); 
+        /* handleButtonClick(); */
+        /* pets(); */ 
         petBuilder(pets);
+
       };      
 
       init();
